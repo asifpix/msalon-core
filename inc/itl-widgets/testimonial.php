@@ -318,27 +318,27 @@
 			);
 
 			/*$this->add_responsive_control(
-														'content_width',
-														[
-															'label' => __( 'Content Width', 'msalon-core' ),
-															'type' => Controls_Manager::SLIDER,
-															'range' => [
-																'%' => [
-																	'min' => 0,
-																	'max' => 100,
+															'content_width',
+															[
+																'label' => __( 'Content Width', 'msalon-core' ),
+																'type' => Controls_Manager::SLIDER,
+																'range' => [
+																	'%' => [
+																		'min' => 0,
+																		'max' => 100,
+																	],
+																	'px' => [
+																		'min' => 0,
+																		'max' => 1200,
+																		'step' => 5,
+																	],
 																],
-																'px' => [
-																	'min' => 0,
-																	'max' => 1200,
-																	'step' => 5,
+																'size_units' => [ 'px', '%' ],
+																'selectors' => [
+																	'{{WRAPPER}} .testimonial-item-wrap' => 'max-width: {{SIZE}}{{UNIT}}; margin: auto;',
 																],
-															],
-															'size_units' => [ 'px', '%' ],
-															'selectors' => [
-																'{{WRAPPER}} .testimonial-item-wrap' => 'max-width: {{SIZE}}{{UNIT}}; margin: auto;',
-															],
-														]
-													);*/
+															]
+														);*/
 
 			$this->end_controls_section();
 		}
