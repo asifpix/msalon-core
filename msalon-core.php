@@ -3,7 +3,7 @@
 Plugin Name: MenzSalon - Core
 Plugin URI:  http://ithemeslab.com
 Description: This plugin enables the core features to this theme. You must have to install this plugin to work with the theme.
-Version:     1.2
+Version:     1.3
 Author:      iThemesLab
 Author URI:  http://ithemeslab.com
 License:     GPL2

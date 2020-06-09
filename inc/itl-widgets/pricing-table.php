@@ -40,15 +40,6 @@ class Widget_Itl_Pricing_Table extends Widget_Base {
 				'placeholder' => __( 'Basic, Standard, Premium', 'msalon-core' ),
 			]
 		);
-		$this->add_control(
-			'pricing_subtitle',
-			[
-				'label'       => __( 'Pricing Subtitle', 'msalon-core' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Subtitle text goes here', 'msalon-core' ),
-				'placeholder' => __( 'Subtitle text goes here', 'msalon-core' ),
-			]
-		);
 
 		$this->add_control(
 			'currency_symbol',
@@ -201,6 +192,225 @@ class Widget_Itl_Pricing_Table extends Widget_Base {
 				],
 			]
 		);
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'msalon-core',
+			[
+				'label' => __('Content', 'msalon-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'title_color',
+			[
+				'label' => __( 'Title Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .pricing-head .title' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_typography',
+				'label' => __( 'Title', 'msalon-core' ),
+				'selector' => '{{WRAPPER}} .itl-pricing-table .pricing-head .title',
+			]
+		);
+		$this->start_controls_tabs('price_text');
+			$this->start_controls_tab(
+				'normal_state',
+				[
+					'label' => __('Normal', 'msalon-core'),
+				]
+			);
+				$this->add_control(
+					'price_text_color',
+					[
+						'label' => __( 'Price Text Color', 'msalon-core' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .itl-pricing-table .price-value' => 'color: {{VALUE}}',
+						],
+					]
+				);
+				$this->add_control(
+					'price_bg_color',
+					[
+						'label' => __( 'Price BG Color', 'msalon-core' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .itl-pricing-table .price-value' => 'background-color: {{VALUE}}',
+						],
+					]
+				);
+				$this->add_group_control(
+					\Elementor\Group_Control_Typography::get_type(),
+					[
+						'name' => 'price_text_typography',
+						'label' => __( 'Price Text', 'msalon-core' ),
+						'selector' => '{{WRAPPER}} .itl-pricing-table .price-value',
+					]
+				);
+			$this->end_controls_tab();
+			$this->start_controls_tab(
+				'hover_state',
+				[
+					'label' => __('Hover', 'msalon-core'),
+				]
+			);
+			$this->add_control(
+				'price_text_hover_color',
+				[
+					'label' => __( 'Price Text Color', 'msalon-core' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .itl-pricing-table .price-value:hover' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_control(
+				'price_bg_hover_color',
+				[
+					'label' => __( 'Price BG Color', 'msalon-core' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .itl-pricing-table:hover .price-value:hover' => 'background-color: {{VALUE}}',
+					],
+				]
+			);
+			$this->end_controls_tab();
+		$this->end_controls_tabs();
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'pricing_list_styles',
+			[
+				'label' => __('List Item', 'msalon-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'icon_color',
+			[
+				'label' => __( 'Icon Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .pricing-list li span i' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'list_item_color',
+			[
+				'label' => __( 'Price Text Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .pricing-list li span' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'list_item_typography',
+				'label' => __( 'List Item', 'msalon-core' ),
+				'selector' => '{{WRAPPER}} .itl-pricing-table .pricing-list li span',
+			]
+		);
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'pricing_button_styles',
+			[
+				'label' => __('Button', 'msalon-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->start_controls_tabs(
+			'pricing_button_tab'
+		);
+
+		$this->start_controls_tab(
+			'button_normal_tab',
+			[
+				'label' => __( 'Normal', 'plugin-name' ),
+			]
+		);
+		$this->add_control(
+			'btn_text_color',
+			[
+				'label' => __( 'Text Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .btn' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'btn_bg_color',
+			[
+				'label' => __( 'Background Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .btn' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'button_typography',
+				'label' => __( 'Typography', 'plugin-domain' ),
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .itl-pricing-table .btn',
+			]
+		);
+		$this->end_controls_tab();
+		$this->start_controls_tab(
+			'button_hover_tab',
+			[
+				'label' => __( 'Hover', 'plugin-name' ),
+			]
+		);
+		$this->add_control(
+			'btn_text_hover_color',
+			[
+				'label' => __( 'Text Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .btn:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'btn_bg_hover_color',
+			[
+				'label' => __( 'Background Color', 'msalon-core' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .itl-pricing-table .btn:hover' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 		$this->end_controls_section();
 	}
 
